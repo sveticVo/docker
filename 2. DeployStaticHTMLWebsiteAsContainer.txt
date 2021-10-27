@@ -1,0 +1,78 @@
+Your Interactive Bash Terminal. A safe place to learn and execute commands.
+$ 
+$ docker build -t webserver-image:v1
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+Usage:  docker build [OPTIONS] PATH | URL | - [flags]
+
+Build an image from a Dockerfile
+$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+nginx               alpine              513f9a9d8748        5 weeks ago         22.9MB
+redis               latest              4760dc956b2d        3 years ago         107MB
+ubuntu              latest              f975c5035748        3 years ago         112MB
+alpine              latest              3fd9065eaf02        3 years ago         4.14MB
+$ docker build -t webserver:v1      
+"docker build" requires exactly 1 argument.
+See 'docker build --help'.
+
+Usage:  docker build [OPTIONS] PATH | URL | - [flags]
+
+Build an image from a Dockerfile
+$ docker build --help
+
+Usage:  docker build [OPTIONS] PATH | URL | -
+
+Build an image from a Dockerfile
+
+Options:
+      --add-host list           Add a custom host-to-IP mapping (host:ip)
+      --build-arg list          Set build-time variables
+      --cache-from strings      Images to consider as cache sources
+      --cgroup-parent string    Optional parent cgroup for the container
+      --compress                Compress the build context using gzip
+      --cpu-period int          Limit the CPU CFS (Completely Fair Scheduler) period
+      --cpu-quota int           Limit the CPU CFS (Completely Fair Scheduler) quota
+  -c, --cpu-shares int          CPU shares (relative weight)
+      --cpuset-cpus string      CPUs in which to allow execution (0-3, 0,1)
+      --cpuset-mems string      MEMs in which to allow execution (0-3, 0,1)
+      --disable-content-trust   Skip image verification (default true)
+  -f, --file string             Name of the Dockerfile (Default is 'PATH/Dockerfile')
+      --force-rm                Always remove intermediate containers
+      --iidfile string          Write the image ID to the file
+      --isolation string        Container isolation technology
+      --label list              Set metadata for an image
+  -m, --memory bytes            Memory limit
+      --memory-swap bytes       Swap limit equal to memory plus swap: '-1' to enable unlimited swap
+      --network string          Set the networking mode for the RUN instructions during build (default "default")
+      --no-cache                Do not use cache when building the image
+      --pull                    Always attempt to pull a newer version of the image
+  -q, --quiet                   Suppress the build output and print image ID on success
+      --rm                      Remove intermediate containers after a successful build (default true)
+      --security-opt strings    Security options
+      --shm-size bytes          Size of /dev/shm
+  -t, --tag list                Name and optionally a tag in the 'name:tag' format
+      --target string           Set the target build stage to build.
+      --ulimit ulimit           Ulimit options (default [])
+$ docker build -t webserver-image:v1 .
+Sending build context to Docker daemon  3.072kB
+Step 1/2 : FROM nginx:alpine
+ ---> 513f9a9d8748
+Step 2/2 : COPY . /usr/share/nginx/html
+ ---> 7d1ff1918c5c
+Successfully built 7d1ff1918c5c
+Successfully tagged webserver-image:v1
+$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+webserver-image     v1                  7d1ff1918c5c        45 seconds ago      22.9MB
+nginx               alpine              513f9a9d8748        5 weeks ago         22.9MB
+redis               latest              4760dc956b2d        3 years ago         107MB
+ubuntu              latest              f975c5035748        3 years ago         112MB
+alpine              latest              3fd9065eaf02        3 years ago         4.14MB
+$ docker run -d -p 80:80 webserver-image:v1
+2596342178f6c68cfe89fb6d002fd87a041c224e8c804179cc221ab5b5e49057
+$ curl docker
+<h1>Hello World</h1>
+$ ^C
+$ 

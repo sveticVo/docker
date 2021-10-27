@@ -1,0 +1,54 @@
+# This is your Editor pane. Write the Dockerfile here and 
+# use the command line to execute commands
+FROM nginx:1.11-alpine
+COPY index.html /usr/share/nginx/html/index.html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
+
+Your Interactive Bash Terminal. A safe place to learn and execute commands.
+$ 
+$ docker build -t websiteSveta:v1 .
+invalid argument "websiteSveta:v1" for "-t, --tag" flag: invalid reference format: repository name must be lowercase
+See 'docker build --help'.
+$ docker build -t website-sveta:v1 .
+Sending build context to Docker daemon  3.072kB
+Step 1/4 : FROM nginx:1.11-alpine
+ ---> bedece1f06cc
+Step 2/4 : COPY index.html /usr/share/nginx/html/index.html
+ ---> cf72dd785079
+Step 3/4 : EXPOSE 80
+ ---> Running in 4091b39f2218
+Removing intermediate container 4091b39f2218
+ ---> 540b25836f16
+Step 4/4 : CMD ["nginx", "-g", "daemon off;"]
+ ---> Running in 11e2d026519a
+Removing intermediate container 11e2d026519a
+ ---> 7643a54eca73
+Successfully built 7643a54eca73
+Successfully tagged website-sveta:v1
+$ docker images
+REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE
+website-sveta       v1                  7643a54eca73        33 seconds ago      54.3MB
+redis               latest              4760dc956b2d        3 years ago         107MB
+ubuntu              latest              f975c5035748        3 years ago         112MB
+alpine              latest              3fd9065eaf02        3 years ago         4.14MB
+nginx               1.11-alpine         bedece1f06cc        4 years ago         54.3MB
+$ docker run -d -p 80:80 7643a54eca73
+0f64fb9491135f745b4d04b95ff720d74509ad9291bfe9ce98feddbeb22077a6
+$ curl -i http://docker
+HTTP/1.1 200 OK
+Server: nginx/1.11.13
+Date: Wed, 20 Oct 2021 19:52:45 GMT
+Content-Type: text/html
+Content-Length: 21
+Last-Modified: Wed, 20 Oct 2021 19:36:19 GMT
+Connection: keep-alive
+ETag: "61706fb3-15"
+Accept-Ranges: bytes
+
+<h1>Hello World</h1>
+$ docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES
+0f64fb949113        7643a54eca73        "nginx -g 'daemon of…"   About a minute ago   Up About a minute   0.0.0.0:80->80/tcp, 443/tcp   cranky_mendeleev
+$

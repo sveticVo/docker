@@ -1,0 +1,81 @@
+Run 'docker COMMAND --help' for more information on a command.
+
+To get more help with docker, check out our guides at https://docs.docker.com/go/guides/
+
+C:\Users\Светлана>docker search hello-world
+NAME                                       DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+hello-world                                Hello World! (an example of minimal Dockeriz…   1550      [OK]
+kitematic/hello-world-nginx                A light-weight nginx container that demonstr…   150
+tutum/hello-world                          Image to test docker deployments. Has Apache…   87                   [OK]
+dockercloud/hello-world                    Hello World!                                    19                   [OK]
+crccheck/hello-world                       Hello World web server in under 2.5 MB          15                   [OK]
+in28min/hello-world-rest-api                                                               9
+vad1mo/hello-world-rest                    A simple REST Service that echoes back all t…   5                    [OK]
+arm32v7/hello-world                        Hello World! (an example of minimal Dockeriz…   3
+ppc64le/hello-world                        Hello World! (an example of minimal Dockeriz…   2
+datawire/hello-world                       Hello World! Simple Hello World implementati…   1                    [OK]
+ansibleplaybookbundle/hello-world-db-apb   An APB which deploys a sample Hello World! a…   1                    [OK]
+infrastructureascode/hello-world           A tiny "Hello World" web server with a healt…   1                    [OK]
+ansibleplaybookbundle/hello-world-apb      An APB which deploys a sample Hello World! a…   1                    [OK]
+souravpatnaik/hello-world-go               hello-world in Golang                           1
+markmnei/hello-world-java-docker           Hello-World-Java-docker                         1                    [OK]
+thomaspoignant/hello-world-rest-json       This project is a REST hello-world API to bu…   1
+strimzi/hello-world-streams                                                                0
+koudaiii/hello-world                                                                       0
+businessgeeks00/hello-world-nodejs                                                         0
+nirmata/hello-world                                                                        0                    [OK]
+burdz/hello-world-k8s                      To provide a simple webserver that can have …   0                    [OK]
+freddiedevops/hello-world-spring-boot                                                      0
+strimzi/hello-world-consumer                                                               0
+garystafford/hello-world                   Simple hello-world Spring Boot service for t…   0                    [OK]
+strimzi/hello-world-producer                                                               0
+
+C:\Users\Светлана>docker search hello-world:latest
+NAME                         DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED
+raveena87/hello-world        hello-world:latest                              1
+anotherkeebler/hello-world   cloned from official/hello-world:latest for …   0
+gunaydin1982/gunaydin1982    Hello-world:Latest                              0
+manikanth123/mani            docker run hello-world:latest                   0
+
+C:\Users\Светлана>docker pull hello-world
+Using default tag: latest
+latest: Pulling from library/hello-world
+2db29710123e: Pull complete
+Digest: sha256:37a0b92b08d4919615c3ee023f7ddb068d12b8387475d64c622ac30f45c29c51
+Status: Downloaded newer image for hello-world:latest
+docker.io/library/hello-world:latest
+
+C:\Users\Светлана>docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+C:\Users\Светлана>docker images
+REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
+hello-world   latest    feb5d9fea6a5   4 weeks ago   13.3kB
+
+C:\Users\Светлана>docker run -d hello-world:latest
+d6d0784022c47aab8df51ba4e2e310998d79b3cc699e78c28e278413ad237df9
+
+C:\Users\Светлана>docker run hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
+C:\Users\Светлана>
